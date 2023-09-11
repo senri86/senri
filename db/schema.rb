@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 2023_09_06_083559) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "menu_tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "menus", force: :cascade do |t|
     t.integer "price"
     t.string "address"
@@ -44,18 +50,12 @@ ActiveRecord::Schema.define(version: 2023_09_06_083559) do
     t.integer "level"
   end
 
-  create_table "post_tags", force: :cascade do |t|
-    t.string "tag_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "tag_maps", force: :cascade do |t|
-    t.integer "post_id", null: false
+    t.integer "menu_id", null: false
     t.integer "tag_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_tag_maps_on_post_id"
+    t.index ["menu_id"], name: "index_tag_maps_on_menu_id"
     t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
   end
 
@@ -74,6 +74,6 @@ ActiveRecord::Schema.define(version: 2023_09_06_083559) do
   add_foreign_key "images", "menus"
   add_foreign_key "likes", "menus"
   add_foreign_key "likes", "users"
-  add_foreign_key "tag_maps", "posts"
+  add_foreign_key "tag_maps", "menus"
   add_foreign_key "tag_maps", "tags"
 end
