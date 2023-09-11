@@ -1,0 +1,12 @@
+<h1>自分の題名</h1>
+<h3>一覧ページ</h3>
+<%= link_to "新規投稿へ", new_eat_path %>
+<div class="eats-container">
+  <% @eats.each do |t| %>
+    <div class="eat">
+      <%= t.price %>
+      <%= t.station %>
+      <%= t.body %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,37 @@
+<h1>gourmet</h1>
+<h3>詳細</h3>
+<div class="menu">
+  <p><%= @menu.body %></p>
+ 
+  <% @menu.images.each do |image| %>
+  <%= image_tag image.image_url, size: "250x200" %>
+  <% end %>
+  <p><%= @menu.created_at %></p>
+  <%=  video_tag @menu.video_url ,:controls => true if @menu.video?%>
+   <% if user_signed_in? %>
+    <% if current_user.already_liked?(@menu) %>
+     <%= link_to menu_like_path(@menu), method: :delete do %>
+      <i class="fas fa-heart"></i><%= @menu.likes.count %>
+    <% end %>
+   <% else %>
+    <%= link_to menu_likes_path(@menu), method: :post do %>
+      <i class="far fa-heart"></i><%= @menu.likes.count %>
+    <% end %>
+   <% end %>
+ <% else %>
+ <i class="far fa-heart"></i><%= @menu.likes.count %>
+ <% end %>
+
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @menu.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+<%= link_to "編集する", edit_menu_path(@menu.id) %>
+<%= link_to '一覧ページに戻る', menus_path %>
+
+<p id="notice"><%= notice %></p>
+
+

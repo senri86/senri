@@ -1,0 +1,53 @@
+.menus-container {
+    width: 100%;
+    display: flex;
+	flex-wrap: wrap;
+    max-width: 1200px;
+	gap: 4px;
+	padding: 2px;
+    padding-left: 10%;
+
+    
+  }
+  h3 {
+    width: 100px;
+    margin: 30px auto;
+    text-align: center;
+  }
+  .menu {
+    margin: 5px 0;
+    justify-content: space-between;
+    width: 33%;
+    
+    
+  }
+  .main-box {
+    
+  }
+  .time {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .icon{
+    width: 200px;
+    height: 200px;
+  }
+  .video{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+
+  }
+  .search_container input[type="submit"]{
+    cursor: pointer;
+    font-family: FontAwesome;
+    font-size: 1.3em;
+    border: none;
+    background: none;
+    color: #3A3A3B;
+    position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+    right: 0;
+    top: -10px;
+}

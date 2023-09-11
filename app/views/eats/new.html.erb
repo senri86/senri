@@ -1,0 +1,27 @@
+<h1>(自分の題名)</h1>
+<h3>新規投稿ページ</h3>
+<%= form_for @モデル名 do |f| %>
+
+# データ型がstringで自由記述の入力フォーム
+  <div class="field">
+    <%= f.label :最寄り駅 %>
+    <%= f.text_field :station, :size => 50 %>
+  </div>
+
+
+# データ型がintegerで数字のみを入力するフォーム
+  <div class="field">
+    <%= f.label :料金  %>
+    <%= f.number_field :price, :size => 10 %>
+  </div>
+
+# データ型がtextで自由記述の入力フォーム
+  <div class="field">
+    <%= f.label :自由欄  %>
+    <%= f.text_area :body, :size => "30x10" %>
+  </div>
+
+  <%= f.submit "投稿する" %>
+<% end %>
+
+<%= link_to "一覧に戻る", eats_path %>
