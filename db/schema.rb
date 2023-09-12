@@ -29,12 +29,6 @@ ActiveRecord::Schema.define(version: 2023_09_06_083559) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "menu_tags", force: :cascade do |t|
-    t.string "tag_name"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "menus", force: :cascade do |t|
     t.integer "price"
     t.string "address"
@@ -57,6 +51,12 @@ ActiveRecord::Schema.define(version: 2023_09_06_083559) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["menu_id"], name: "index_tag_maps_on_menu_id"
     t.index ["tag_id"], name: "index_tag_maps_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "tag_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
