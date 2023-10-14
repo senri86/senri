@@ -4,6 +4,7 @@ class MenusController < ApplicationController
   
   def index 
     @menus = Menu.all
+    @menus = Menu.all.order(created_at: :desc)
       search = params[:search]
       @menus =Menu.joins(:user).where("body LIKE ? OR address LIKE ?", "%#{search}%", "%#{search}%")
     
@@ -15,6 +16,7 @@ class MenusController < ApplicationController
   
   def show
     @menu =Menu.find(params[:id])
+    @menus = Menu.all.order(created_at: :desc)
   end
 
   

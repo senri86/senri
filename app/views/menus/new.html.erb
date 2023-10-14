@@ -1,4 +1,13 @@
 <h2>新規投稿ページ</h2>
+<p id="notice"><%= notice %></p>
+<%= link_to "一覧ページへ", menus_path %>
+<% if user_signed_in? %>
+<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to "新規登録", new_user_registration_path %></li>
+<li><%= link_to "ログイン", new_user_session_path %></li>
+<% end %>
+
 <div class="post-container">
 <%= form_for @menu do |f| %>
     <%= f.label :images %>　 
@@ -46,7 +55,6 @@
 <% end %>
 </div>
 
-<%= link_to "一覧に戻る", menus_path %>
 
 
 

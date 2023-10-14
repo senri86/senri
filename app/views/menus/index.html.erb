@@ -1,4 +1,21 @@
+<a class="btn">
 <p id="notice"><%= notice %></p>
+<%= link_to "新規投稿へ", new_menu_path %>
+<% if user_signed_in? %>
+<li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+<% else %>
+<li><%= link_to "新規登録", new_user_registration_path %></li>
+<li><%= link_to "ログイン", new_user_session_path %></li>
+<% end %>
+</a>
+
+<div class="minto1">
+            <%= image_tag "東京タワー４５.jpg",class:"minto"%>
+            <%= image_tag '紅葉４５.jpg',class:"minto"%>
+            <%= image_tag "和食店４５.jpg",class:"minto"%>
+</div>
+<div class="donut1">
+</div>
 
 
 <h2>一覧ページ</h2>
@@ -13,7 +30,7 @@
 </form>
 </div>
 
-<%= link_to "新規投稿へ", new_menu_path %>
+
 <div class="menus-container">
   <% @menus.each do |t| %>
     <div class="menu">

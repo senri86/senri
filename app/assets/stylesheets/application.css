@@ -15,7 +15,7 @@
  */
  * {
     padding: 0;
-    margin: 0;
+    margin: 5px;
   }
   body {
     font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
@@ -26,7 +26,7 @@
     height: 80px;
     font-weight: bold;
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between ;
     align-items: center;
   }
   header a {
